@@ -1,0 +1,111 @@
+_________________________________________________________________________________________
+ControllerTester
+_________________________________________________________________________________________
+
+//  ----------------------- addCustomer -----------------------
+//		System.out.println("checking method addCustomer");
+//		System.out.println(String.format("POST %s/customer", SERVER_URL));
+//		List<Order>DaniellaOrders = new ArrayList<Order>();
+//		DaniellaOrders.add(new Order("cardigan", Date.valueOf("2021-10-10")));
+//		DaniellaOrders.add(new Order("sweater", Date.valueOf("2021-10-13")));
+//		Customer customer = new Customer("Daniella", 35, DaniellaOrders);
+//		ResponseEntity<Long> response = resttemplate.postForEntity(String.format("%s/customer", SERVER_URL), customer,Long.class);
+//		System.out.println("response statuse: " + response.getStatusCodeValue() );
+//		System.out.println("response body: " + response.getBody());
+//		
+
+//		RequestEntity<Customer> req = RequestEntity.put(SERVER_URL + "/customer").body(customer);
+//		ResponseEntity<Customer> responseEntity = resttemplate.exchange(req, Customer.class);
+//		Customer respBody = responseEntity.getBody();
+//		System.out.println("updated: " + respBody);
+// ----------------------- getCustomerById -----------------------
+
+//		System.out.println("checking method getCustomerById");
+//		System.out.println( SERVER_URL + "/customer/1");
+//		Customer customer = resttemplate.getForObject(String.format("%s/customer/1", SERVER_URL), Customer.class);
+//	Customer customer = resttemplate.getForObject(String.format("%s/customer/1", SERVER_URL), Customer.class);
+// customer = resttemplate.getForObject("http://localhost:8080/customer/1", Customer.class);
+//		Customer customer = resttemplate.getForObject("http://localhost:8080/customer/1", Customer.class);
+//		System.out.println(String.format("received customer: %s", customer.toString()));
+
+//		ResponseEntity<Customer> customer = resttemplate.getForEntity("http :// localhost: 8080/customer/1", Customer.class);
+//		Customer customer =	resttemplate.getForEntity("http :// localhost: 8080/customer/1", Customer.class).getBody();
+
+// ----------------------- getAllCustomers -----------------------
+
+//		System.out.println("checking method getAllCustomer");
+//		System.out.println(SERVER_URL + "%s/customer/all");
+//		CustomerList customers = resttemplate.getForObject(String.format("%s/customer/all", SERVER_URL),
+//				CustomerList.class);
+//		System.out.println(String.format("received customers: %s", customers.getCustomers()));
+
+//		Customer[] customersArr = resttemplate.getForObject(String.format("%s/customer", SERVER_URL), Customer[].class);
+//		System.out.println(customersArr);
+
+// ----------------------- DeleteCustomer -----------------------
+
+//		System.out.println("checking method DeleteCustomer");
+//		System.out.println(String.format("%s/customer/5", SERVER_URL));
+////		resttemplate.delete(String.format("%s/customer/4", SERVER_URL));
+//		
+//		try {
+//			resttemplate.delete(SERVER_URL + "/customer/5");
+//			System.out.println("customer deleted");
+//		} catch (RestClientException e) {
+//			System.out.println(e.getMessage());
+//		}
+//
+
+// **************** getCustomerById ****************
+//	System.out.println("checking method  getCustomerById");
+//	System.out.println(String.format("GET %s/customer/1", SERVER_URL));
+//	Customer customer = resttemplate.getForObject(String.format("%s/customer/1", SERVER_URL), Customer.class);
+//	System.out.println( String.format("received customer: %s", customer.toString()));
+
+
+// __________________________________ update customer __________________________________
+
+//	System.out.println("checking method  updateCustomer");
+//	System.out.println(String.format("PUT %s/customer/1", SERVER_URL));
+//	
+//	List<Order>DaniellaOrders = new ArrayList<Order>();
+//	DaniellaOrders.add(new Order("sweaterAAA", Date.valueOf("2021-10-10")));
+//	DaniellaOrders.add(new Order("cardiganAAA", Date.valueOf("2021-10-13")));
+//	Customer updateCustomer = new Customer(1,"Daniella", 25, DaniellaOrders);
+//	resttemplate.put("http://localhost:8080/customer", updateCustomer);
+////	resttemplate.put(SERVER_URL + "/customer", updateCustomer);
+//	System.out.println("updated");
+//	
+//	******** put with return body using exchange method for any http request method ********
+//	RequestEntity<Customer> req = RequestEntity.put(SERVER_URL + "/customer").body(updateCustomer);
+//	ResponseEntity<Customer> responseEntity = resttemplate.exchange(req, Customer.class);
+//	Customer respBody = responseEntity.getBody();
+//	System.out.println("updated: " + respBody);
+
+
+
+		// _____________ ControllerTester _____________________
+//	@Autowired
+//	private RestTemplate resttemplate;
+//
+//	private static final String SERVER_URL = "http://localhost:8080";
+//
+//	public ControllerTester() {
+//		resttemplate = new RestTemplate();
+//	}
+//	public void testApi() {
+
+
+
+_________________________________________________________________________________________
+SERVICE
+_________________________________________________________________________________________
+// ----------------------- getAllCustomersByAge -----------------------
+	public List<Customer> getAllCustomersByAge(int age) {
+		return customersRepository.findByAge(age);
+	}
+
+	/*
+	 * public List<User> getUsersByAge(int age) { return
+	 * usersRepository.findByAge(age); }
+	 */
